@@ -1,7 +1,8 @@
 # Breath
 
 `Breath` es una librería que facilita el uso del sensor de presión MPS20N0040D para la detección de soplo en proyectos como instrumentos electrónicos de viento (EWI).
-<img src='https://static.wixstatic.com/media/99ba69_f4d46c2102c24d46a3c3661d1a71ab0c~mv2.jpg/v1/fill/w_668,h_581,al_c,q_85/99ba69_f4d46c2102c24d46a3c3661d1a71ab0c~mv2.jpg' title=''/>
+
+<img width="25%" src='https://static.wixstatic.com/media/99ba69_f4d46c2102c24d46a3c3661d1a71ab0c~mv2.jpg/v1/fill/w_668,h_581,al_c,q_85/99ba69_f4d46c2102c24d46a3c3661d1a71ab0c~mv2.jpg' title=''/>
 
 ## Características
 

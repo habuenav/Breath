@@ -2,7 +2,7 @@
 
 # Breath
 
-`Breath` es una librería que facilita el uso del sensor de presión MPS20N0040D para la detección de soplo en proyectos como instrumentos electrónicos de viento (EWI).
+`Breath` es una librería que facilita el uso del sensor de presión (MPS20N0040D - HX710B) para la detección de soplo en proyectos como instrumentos electrónicos de viento (EWI).
 
 <p align="center">
 <img width="25%" src='https://static.wixstatic.com/media/99ba69_f4d46c2102c24d46a3c3661d1a71ab0c~mv2.jpg/v1/fill/w_668,h_581,al_c,q_85/99ba69_f4d46c2102c24d46a3c3661d1a71ab0c~mv2.jpg' title=''/>
@@ -11,7 +11,7 @@
 ## Características
 
 - Codigo optimizado para obtener lecturas rapidas.
-- Creado para Leer valores de soplo con el sensor MPS20N0040D, no funciona para obtener valores de presion.
+- Creado para Leer valores de soplo con el sensor (MPS20N0040D - HX710B), no funciona para obtener valores de presion.
 - Calibración automática del valor inicial del sensor a 0.
 - Ajuste de sensibilidad mediante un factor de resistencia.
 - Configuración de límites de lectura y de salida máxima para adaptarse a las necesidades del proyecto.
@@ -19,7 +19,7 @@
 ## Requisitos
 
 - **Placa**: Probado en placas Esp32, Esp32-S2, Esp32-C3 y Esp32-S3
-- **Sensor**: MPS20N0040D
+- **Sensor**: (MPS20N0040D - HX710B)
 - **IDE de Arduino**: Recomendado 1.8.10 o superior
 
 ## Instalación
@@ -83,7 +83,7 @@ Las contribuciones son bienvenidas. Si encuentras un problema o tienes una suger
 
 # Breath
 
-`Breath` is a library that facilitates the use of the MPS20N0040D pressure sensor for blow detection in projects such as electronic wind instruments (EWI).
+`Breath` is a library that facilitates the use of the (MPS20N0040D - HX710B) pressure sensor for blow detection in projects such as electronic wind instruments (EWI).
 
 <p align="center">
 <img width="25%" src='https://static.wixstatic.com/media/99ba69_f4d46c2102c24d46a3c3661d1a71ab0c~mv2.jpg/v1/fill/w_668,h_581,al_c,q_85/99ba69_f4d46c2102c24d46a3c3661d1a71ab0c~mv2.jpg' title=''/>
@@ -92,7 +92,7 @@ Las contribuciones son bienvenidas. Si encuentras un problema o tienes una suger
 ## Characteristics
 
 - Code optimized for fast readings.
-- Created to read breath values ​​with the MPS20N0040D sensor, it does not work to obtain pressure values.
+- Created to read breath values ​​with the (MPS20N0040D - HX710B) sensor, it does not work to obtain pressure values.
 - Automatic calibration of the initial sensor value to 0.
 - Sensitivity adjustment using a resistance factor.
 - Setting read and maximum output limits to suit project needs.
@@ -100,7 +100,7 @@ Las contribuciones son bienvenidas. Si encuentras un problema o tienes una suger
 ## Requirements
 
 - **Board** : Tested on Esp32, Esp32-S2, Esp32-C3 and Esp32-S3 boards
-- **Sensor** : MPS20N0040D
+- **Sensor** : (MPS20N0040D - HX710B)
 - **Arduino IDE** : Recommended 1.8.10 or higher
 
 ## Instalation

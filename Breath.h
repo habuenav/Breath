@@ -5,7 +5,7 @@
 // switchPin: genera un pulso de reloj bajando y subiendo el pin CLOCK_PIN.
 #define switchPin digitalWrite(CLOCK_PIN, HIGH); digitalWrite(CLOCK_PIN, LOW)
 // waitPin: espera a que el pin OUT_PIN se ponga en estado bajo (lectura lista).
-#define waitPin while (digitalRead(OUT_PIN))
+#define waitPin while(digitalRead(OUT_PIN))
 
 class Breath {
   private:

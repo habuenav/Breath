@@ -8,8 +8,9 @@
 
 ## Características
 
-- Lectura de valores de soplo con el sensor MPS20N0040D.
-- Calibración automática del valor inicial del sensor.
+- Codigo optimizado para obtener lecturas rapidas.
+- Creado para Leer valores de soplo con el sensor MPS20N0040D, no funciona para obtener valores de presion.
+- Calibración automática del valor inicial del sensor a 0.
 - Ajuste de sensibilidad mediante un factor de resistencia.
 - Configuración de límites de lectura y de salida máxima para adaptarse a las necesidades del proyecto.
 

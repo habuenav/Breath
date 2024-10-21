@@ -85,28 +85,35 @@ Las contribuciones son bienvenidas. Si encuentras un problema o tienes una suger
 
 `Breath` is a library that facilitates the use of the MPS20N0040D pressure sensor for blow detection in projects such as electronic wind instruments (EWI).
 
+<p align="center">
+<img width="25%" src='https://static.wixstatic.com/media/99ba69_f4d46c2102c24d46a3c3661d1a71ab0c~mv2.jpg/v1/fill/w_668,h_581,al_c,q_85/99ba69_f4d46c2102c24d46a3c3661d1a71ab0c~mv2.jpg' title=''/>
+</p>
+
 ## Characteristics
 
-Code optimized for fast readings.
-Created to read breath values ​​with the MPS20N0040D sensor, it does not work to obtain pressure values.
-Automatic calibration of the initial sensor value to 0.
-Sensitivity adjustment using a resistance factor.
-Setting read and maximum output limits to suit project needs.
+- Code optimized for fast readings.
+- Created to read breath values ​​with the MPS20N0040D sensor, it does not work to obtain pressure values.
+- Automatic calibration of the initial sensor value to 0.
+- Sensitivity adjustment using a resistance factor.
+- Setting read and maximum output limits to suit project needs.
 
 ## Requirements
 
-Board : Tested on Esp32, Esp32-S2, Esp32-C3 and Esp32-S3 boards
-Sensor : MPS20N0040D
-Arduino IDE : Recommended 1.8.10 or higher
+- **Board** : Tested on Esp32, Esp32-S2, Esp32-C3 and Esp32-S3 boards
+- **Sensor** : MPS20N0040D
+- **Arduino IDE** : Recommended 1.8.10 or higher
 
-## Facility
-Download the library ZIP file from GitHub .
-In the Arduino IDE, go to Sketch > Include Library > Add .ZIP Library... .
-Select the downloaded ZIP file to install the library.
+## Instalation
+
+1. Download the library ZIP file from GitHub .
+2. In the Arduino IDE, go to Sketch > Include Library > Add .ZIP Library... .
+3. Select the downloaded ZIP file to install the library.
+
 Or you can extract the ZIP file from step 1 into your Arduino libraries directory.
 
 ## Sample code
 
+```
 #include <Breath.h>
 #define OUTPUT_PIN 13
 #define CLOCK_PIN 12
@@ -123,27 +130,33 @@ void loop() {
   Serial.println(breathValue);
   delay(100);
 }
+```
 
 ## API
 
 ### Builder
-Breath(byte output_pin, byte clock_pin): Initializes the Breath class with the sensor data output pin and the clock pin.
+
+<b>Breath(byte output_pin, byte clock_pin):</b> Initializes the Breath class with the sensor data output pin and the clock pin.
 
 ## Methods
-int16_t read(): Reads the sensor value, applies calibration, and returns an adjusted value ranging from 0 to the maximum configured value.
-void setResistance(uint8_t level): Sets the sensitivity of the sensor, where level can be a value from 1 (minimum resistance) to 5 (maximum resistance).
-void setMaxOut(uint8_t maxOut): Defines the maximum output value that will be obtained when reading the sensor.
-void setMaxRead(uint16_t mRead): Sets the upper limit of the read before applying output adjustment.
+
+* <b> int16_t read():</b> Reads the sensor value, applies calibration, and returns an adjusted value ranging from 0 to the maximum configured value.
+* <b> void setResistance(uint8_t level):</b> Sets the sensitivity of the sensor, where level can be a value from 1 (minimum resistance) to 5 (maximum resistance).
+* <b> void setMaxOut(uint8_t maxOut):</b> Defines the maximum output value that will be obtained when reading the sensor.
+* <b> void setMaxRead(uint16_t mRead):</b> Sets the upper limit of the read before applying output adjustment.
 
 ### NOTES
-The MPS20N0040D pressure sensor needs a stable power supply and must be properly connected to the ESP32.
-The library includes a function to adjust the blowing resistance, allowing it to be adapted to different sensitivity levels according to the needs of the project.
-The values ​​you set using the setMaxOut and setMaxRead functions affect the sensitivity and resistance
-The recommended value for setMaxOut is 127 as it is the maximum that is sent as a velocity parameter according to the MIDI standard.
-The recommended value for setMaxRead is 255 but it can be adjusted in a range from 200 to 500, you can try which one works best.
+
+* The MPS20N0040D pressure sensor needs a stable power supply and must be properly connected to the ESP32.
+* The library includes a function to adjust the blowing resistance, allowing it to be adapted to different sensitivity levels according to the needs of the project.
+* The values ​​you set using the setMaxOut and setMaxRead functions affect the sensitivity and resistance
+* The recommended value for setMaxOut is 127 as it is the maximum that is sent as a velocity parameter according to the MIDI standard.
+* The recommended value for setMaxRead is 255 but it can be adjusted in a range from 200 to 500, you can try which one works best.
 
 ## Examples
+
 In the examples folder of the repository, you will find additional examples that show how to use the Breath library with the ESP32.
 
 ## Contributions
+
 Contributions are welcome. If you find a problem or have a suggestion, please open an issue or send a pull request.

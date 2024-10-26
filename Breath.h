@@ -69,7 +69,7 @@ Breath::Breath(byte output_pin, byte clock_pin) {
 // Establece el nivel de resistencia del soplo, con un rango de 1 a 5.
 void Breath::setResistance(uint8_t level) {
   // Asegura que el nivel esté entre 1 (mínima resistencia) y 5 (máxima resistencia).
-  level = constrain(level, 1, 5);
+  level = enRango(level, 1, 5);
   // Define el factor de resistencia para ajustar la sensibilidad de la lectura.
   resistanceFactor = 1 / (1.0f + (level - 1) * 0.5f); 
   // Esto ajusta el factor de 1.0 (sin cambio) hasta 0.2 (mayor resistencia).

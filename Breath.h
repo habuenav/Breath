@@ -6,7 +6,13 @@
 #define switchPin digitalWrite(CLOCK_PIN, HIGH); digitalWrite(CLOCK_PIN, LOW)
 // waitPin: espera a que el pin OUT_PIN se ponga en estado bajo (lectura lista).
 #define waitPin while(digitalRead(OUT_PIN))
-
+// readyPin: similar a waitPin
+#define readyPin !digitalRead(OUT_PIN)
+// enRango: macro similar a la funcion constrain pero mas eficiente
+#ifndef enRango(v,rI,rS)
+#define enRango(v,rI,rS) (v > rS) ? rS : ((v < rI) ? rI : v)
+#endif
+  
 class Breath {
   private:
     byte CLOCK_PIN;         // Pin de reloj para leer datos del sensor.
@@ -82,7 +88,9 @@ void Breath::setMaxRead(uint16_t mRead) {
 // Función para leer la presión del sensor y ajustarla.
 inline int16_t IRAM_ATTR Breath::read() {
   // Espera a que el sensor esté listo para proporcionar una nueva lectura.
-  waitPin;
+  //waitPin;
+  if(readyPin)
+  {
   // Lee los bytes de datos del sensor.
   result.bytes[1] = shiftIn(OUT_PIN, CLOCK_PIN, MSBFIRST);
   result.bytes[0] = shiftIn(OUT_PIN, CLOCK_PIN, MSBFIRST);
@@ -94,8 +102,9 @@ inline int16_t IRAM_ATTR Breath::read() {
   switchPin;
   // Ajusta la lectura final restando el valor de calibración inicial y aplicando el factor de resistencia.
   finalRead = ((result.value >> 2) - initRead) * resistanceFactor;
+  }
   // Limita el valor de la lectura entre 0 y el máximo definido.
   // Luego mapea la lectura a un valor de 0 a maxOUT.
-  return map((finalRead < 0 ? 0 : finalRead > maxLimitRead ? maxLimitRead : finalRead), 0, maxLimitRead, 0, maxOUT);
+  return map(enRango(finalRead,0,maxLimitRead), 0, maxLimitRead, 0, maxOUT);
 }
 #endif

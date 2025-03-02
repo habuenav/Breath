@@ -1,5 +1,7 @@
+#pragma once
 #ifndef Breath_h
 #define Breath_h
+#include "FastMapLite.h"
 
 // Definición de macros para simplificar el uso de los pines de reloj y espera.
 // switchPin: genera un pulso de reloj bajando y subiendo el pin CLOCK_PIN.
@@ -24,22 +26,26 @@ class Breath {
     } result;
     int16_t initRead;       // Valor inicial de calibración del sensor.
     int16_t finalRead;      // Valor final leído, ajustado por la resistencia.
-    int16_t maxRead = 0;    // Valor máximo leído (para cálculo).
-    int16_t maxLimitRead = 255; // Límite máximo permitido para la lectura.
-    uint8_t maxOUT = 127;   // Valor máximo de salida permitido.
+    int16_t minRead=0;      // Valor minimo leido
+    int16_t maxRead = 255;    // Valor máximo leído (para cálculo).
+    int16_t minOut=0;   //minimo valor de salida permitido
+    int16_t maxOut=127; //maximo valor de salida permitido
     float resistanceFactor; // Factor que ajusta la sensibilidad de la lectura al soplo.
+    FastMapLite mapRead;
 
   public:
     // Constructor de la clase, recibe los pines de salida y reloj.
     Breath(byte output_pin, byte clock_pin);
     // Función que lee el valor de presión del sensor, lo ajusta y devuelve.
-    int16_t read();
+    inline IRAM_ATTR int16_t read();
     // Establece el nivel de resistencia del soplo (1-5).
     void setResistance(uint8_t level);
     // Establece el valor máximo de salida.
-    void setMaxOut(uint8_t maxOut);
+    void setMinOut(int16_t minOUT);
+    void setMaxOut(int16_t maxOUT);
+    void setMinRead(int16_t minREAD);
     // Establece el valor máximo de lectura antes de limitar.
-    void setMaxRead(uint16_t mRead);
+    void setMaxRead(int16_t maxREAD);
 };
 
 // Implementación del constructor.
@@ -64,6 +70,7 @@ Breath::Breath(byte output_pin, byte clock_pin) {
   initRead = (result.value >> 2);
   // Inicializa el factor de resistencia con un valor por defecto.
   resistanceFactor = 1.0f; // Sin modificar la sensibilidad de la lectura.
+ mapRead.init(minRead,maxRead,minOut,maxOut);
 }
 
 // Establece el nivel de resistencia del soplo, con un rango de 1 a 5.
@@ -75,15 +82,12 @@ void Breath::setResistance(uint8_t level) {
   // Esto ajusta el factor de 1.0 (sin cambio) hasta 0.2 (mayor resistencia).
 }
 
+void Breath::setMinOut(int16_t minOUT) {   minOut=minOUT; }
+void Breath::setMinRead(int16_t minREAD) { minRead=minREAD; }
 // Establece el valor máximo de salida permitido.
-void Breath::setMaxOut(uint8_t maxOut) {
-  maxOUT = maxOut;
-}
-
+void Breath::setMaxOut(int16_t maxOUT) { maxOut = maxOUT;}
 // Establece el valor máximo de lectura antes de limitar.
-void Breath::setMaxRead(uint16_t mRead) {
-  maxLimitRead = mRead;
-}
+void Breath::setMaxRead(int16_t maxREAD) { maxRead = maxREAD;}
 
 // Función para leer la presión del sensor y ajustarla.
 inline int16_t IRAM_ATTR Breath::read() {
@@ -102,9 +106,10 @@ inline int16_t IRAM_ATTR Breath::read() {
   switchPin;
   // Ajusta la lectura final restando el valor de calibración inicial y aplicando el factor de resistencia.
   finalRead = ((result.value >> 2) - initRead) * resistanceFactor;
+  finalRead = finalRead>4096?finalRead-8192:finalRead;
   }
   // Limita el valor de la lectura entre 0 y el máximo definido.
   // Luego mapea la lectura a un valor de 0 a maxOUT.
-  return map(enRango(finalRead,0,maxLimitRead), 0, maxLimitRead, 0, maxOUT);
+  return  mapRead.map(finalRead);
 }
 #endif

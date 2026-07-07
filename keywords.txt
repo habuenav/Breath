@@ -1,5 +1,12 @@
+# Syntax Colouring Map For Breath
+
+# Data types (KEYWORD1)
 Breath	KEYWORD1
-read	KEYWORD2
-setResistance	KEYWORD2
-setMaxOut	KEYWORD2
-setMaxRead	KEYWORD2
+
+# Methods and Functions (KEYWORD2)
+read  KEYWORD2
+setResistance  KEYWORD2
+setMinOut  KEYWORD2
+setMaxOut  KEYWORD2
+setMinRead  KEYWORD2
+setMaxRead  KEYWORD2

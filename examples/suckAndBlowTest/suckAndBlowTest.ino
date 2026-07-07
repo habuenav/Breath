@@ -4,7 +4,7 @@
 
 #include <Breath.h>
 
-Breath myBreath(36, 18);
+Breath myBreath(5, 18);
 
 int minbreath;
 int maxbreath;

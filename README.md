@@ -21,7 +21,7 @@
 - **Placa**: Probado en placas Esp32, Esp32-S2, Esp32-C3 y Esp32-S3
 - **Sensor**: (MPS20N0040D - HX710B)
 - **IDE de Arduino**: Recomendado 1.8.10 o superior
-- **quickMap**: Libreria rapida de mapeo
+- **quickMap**: [Libreria rapida de mapeo](https://github.com/habuenav/quickMap)
 
 ## Instalación
 
@@ -103,7 +103,7 @@ Las contribuciones son bienvenidas. Si encuentras un problema o tienes una suger
 - **Board** : Tested on Esp32, Esp32-S2, Esp32-C3 and Esp32-S3 boards
 - **Sensor** : (MPS20N0040D - HX710B)
 - **Arduino IDE** : Recommended 1.8.10 or higher
-- **quickMap**: Fast mapping library
+- **quickMap**: [Fast mapping library](https://github.com/habuenav/quickMap)
 
 ## Instalation
 

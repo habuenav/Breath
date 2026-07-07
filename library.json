@@ -1,0 +1,21 @@
+{
+  "name": "Breath",
+  "version": "1.0.0",
+  "description": "Ultra-fast breath sensor library for electronic wind instruments (EWI). Currently optimized for HX710B.",
+  "keywords": "breath, ewi, sensor, hx710b, wind-instrument, midi",
+  "authors": [
+    {
+      "name": "Holman Buenaventura",
+      "maintainer": true
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/habuenav/Breath.git"
+  },
+  "frameworks": "arduino",
+  "platforms": "*",
+  "dependencies": {
+    "quickMap": "^1.0.0"
+  }
+}

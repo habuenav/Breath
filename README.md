@@ -28,6 +28,7 @@
 1. Descarga el archivo ZIP de la librería desde [GitHub](https://github.com/habuenav/Breath).
 2. En el IDE de Arduino, ve a **Sketch** > **Include Library** > **Add .ZIP Library...**.
 3. Selecciona el archivo ZIP descargado para instalar la librería.
+4. Puedes instalarlo directamente desde el Administrador de bibliotecas del IDE de Arduino; solo tienes que buscar Breath.
 
 O tambien puedes Extraer el archivo ZIP del paso 1 en tu directorio de librerías de Arduino.
 
@@ -110,6 +111,7 @@ Las contribuciones son bienvenidas. Si encuentras un problema o tienes una suger
 1. Download the library ZIP file from GitHub .
 2. In the Arduino IDE, go to Sketch > Include Library > Add .ZIP Library... .
 3. Select the downloaded ZIP file to install the library.
+4. You can install it directly from the Arduino IDE Library Manager—just search for Breath.
 
 Or you can extract the ZIP file from step 1 into your Arduino libraries directory.
 
